@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>KityMinder Example</title>
+
+    <link href="favicon.ico" type="image/x-icon" rel="shortcut icon">
+    <link rel="stylesheet" href="src/kityminder.css" rel="stylesheet">
+
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        #minder-container {
+            position: absolute;
+            border: 1px solid #ccc;
+            left: 10px;
+            top: 10px;
+            bottom: 10px;
+            right: 10px;
+        }
+    </style>
+
+    <script type="text/javascript" src="https://cdn.rawgit.com/fex-team/kity/dev/dist/kity.js"></script>
+</head>
+<body>
+    <div id="minder-container" type="application/kityminder" minder-data-type="json"></div>
+</body>
+
+<script type="text/javascript" src="dist/kityminder.core.min.js"></script>
+<script type="text/javascript">
+    // 创建 km 实例
+    /* global kityminder */
+    var data={
+        "root": {
+            "data": {
+                "text": "测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试",
+                "image": "http://testtostheme.wsd.com/uploads/WEI2_ZlabKh40yp_UTTWDDiH.jpg",
+                imageSize: { width: 70, height: 70 }
+            },
+            "children": [
+                { "data": { "text": "新闻" }
+                    ,"children":[
+                    { "data": { "text": "网页"} },
+                    { "data": { "text": "贴吧"} },
+                    { "data": { "text": "知道"} }
+                ]
+                },
+                { "data": { "text": "网页", "priority": 1 } },
+                { "data": { "text": "贴吧", "priority": 2 } },
+                { "data": { "text": "知道", "priority": 2 } },
+                { "data": { "text": "音乐", "priority": 3 } },
+                { "data": { "text": "图片", "priority": 3 } },
+                { "data": { "text": "视频", "priority": 3 } },
+                { "data": { "text": "地图", "priority": 3 } },
+                { "data": { "text": "百科", "priority": 3 } },
+                { "data": { "text": "更多", "hyperlink": "http://www.baidu.com/more" } }
+            ]
+        }
+    };
+    var km = window.km = new kityminder.Minder(
+            {renderTo: '#minder-container'}
+    );
+    //km.execCommand('hand');
+
+    setTimeout(function(){
+        km.importJson(data);
+        km.execCommand('Template', "right");
+    },2000)
+    //km.execCommand('Template', "right");
+
+</script>
+
+</html>
