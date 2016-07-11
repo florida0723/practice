@@ -1,0 +1,1 @@
+svn co --username venus --password Sogou-inc.com http://svn.sogou-inc.com/svn/qadev/Venus/MobileCloud/MobileCloud
