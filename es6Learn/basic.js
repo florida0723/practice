@@ -28,13 +28,19 @@ function let_const(){
 }
 
 /**
- * 解构赋值，貌似此版本的node尚未支持
+ * 解构赋值
  */
 function destructuring(){
-    //var [a, b, c] = [1, 2, 3];
-    // console.log(a,b,c);
+    var [a, b, c] = [1, 2, 3];
+    console.log(a,b,c);
+    //对象的结构赋值可以指定默认值，就像函数默认参数一样
+    var {x,y=99}={x:6}
+    console.log(x,y);
 }
 
+/**
+ * 字符串扩展
+ */
 function stringfn(){
 
     let s="hello world";
@@ -69,4 +75,20 @@ function stringfn(){
 
 
 }
-stringfn()
+
+/**
+ * 数组扩展
+ */
+function arrayex(){
+    let likearr={0:1,1:2,2:3,length:3};
+    let arr=Array.from(likearr);
+    let arr2=Array.from(likearr,x=>x*x);
+    var arr3=Array.of(4,5,8,6,5);
+    var arr4=[0,1,2,3,4,5,6,7,8,9].copyWithin(8,0,2);
+    console.log("===from likearr ===",arr);
+    console.log("===from likearr ===",arr2);
+    console.log("===from array.of ===",arr3);
+    console.log("===from copyWithin ===",arr4);
+    //http://es6.ruanyifeng.com/#docs/array //这里还有很多
+}
+arrayex();
